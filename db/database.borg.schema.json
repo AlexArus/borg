@@ -1,0 +1,146 @@
+{
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "sources": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "$ref": "#/$defs/title"
+                    },
+                    "type": {
+                        "enum": [
+                            "rss_full",
+                            "rss_short"
+                        ]
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "$ref": "#/$defs/tags"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "title",
+                    "type",
+                    "source"
+                ]
+            },
+            "uniqueItems": true
+        },
+        "links": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "const": "link"
+                            },
+                            "title": {
+                                "$ref": "#/$defs/title"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "tags": {
+                                "$ref": "#/$defs/tags"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "type",
+                            "title",
+                            "url"
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "const": "group"
+                            },
+                            "title": {
+                                "$ref": "#/$defs/title"
+                            },
+                            "urls": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "format": "uri"
+                                        }
+                                    }
+                                }
+                            },
+                            "tags": {
+                                "$ref": "#/$defs/tags"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "type",
+                            "title",
+                            "urls"
+                        ]
+                    }
+                ]
+            },
+            "uniqueItems": true
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "version",
+        "sources",
+        "links"
+    ],
+    "$defs": {
+        "title": {
+            "type": "string",
+            "minLength": 3
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "enum": [
+                            "science",
+                            "humor",
+                            "tech",
+                            "it",
+                            "other"
+                        ]
+                    },
+                    {
+                        "type": "string"
+                    }
+                ],
+                "uniqueItems": true
+            }
+        }
+    }
+}

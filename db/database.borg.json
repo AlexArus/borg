@@ -1,0 +1,50 @@
+{
+    "version": "08.2022",
+    "sources": [
+        {
+            "title": "nature",
+            "type": "rss_short",
+            "source": "http://feeds.nature.com/nature/rss/current",
+            "tags": [
+                "science"
+            ]
+        },
+        {
+            "title": "Astronomy Picture of the Day (APOD)",
+            "type": "rss_short",
+            "source": "https://apod.nasa.gov/apod.rss",
+            "tags": [
+                "science"
+            ]
+        },
+        {
+            "title": "Science",
+            "type": "rss_short",
+            "source": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
+            "tags": [
+                "science"
+            ]
+        }
+    ],
+    "links": [
+        {
+            "type": "link",
+            "title": "Chrome Developers",
+            "url": "https://developer.chrome.com/"
+        },
+        {
+            "type": "group",
+            "title": "Electron",
+            "urls": [
+                {
+                    "title": "Latest",
+                    "url": "https://www.electronjs.org/docs/latest"
+                },
+                {
+                    "title": "Blog",
+                    "url": "https://www.electronjs.org/blog"
+                }
+            ]
+        }
+    ]
+}
